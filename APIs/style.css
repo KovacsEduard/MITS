@@ -1,0 +1,252 @@
+/* Basic, accessible styles for the MITS static site (honosított osztálynevekkel) */
+
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --accent: #0066cc;
+  --muted: #555555;
+  --max-width: 1100px;
+  --gap: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+.tartalom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.fejlec {
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.oldal-cim {
+  display: inline-block;
+  margin: 0;
+  padding: .5rem 0;
+  font-size: 1.25rem;
+}
+
+.navigacio {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--gap);
+}
+
+.navigacio a {
+  display: inline-block;
+  padding: .5rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.navigacio a:focus {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+.ugras-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  overflow: hidden;
+}
+
+.ugras-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: .5rem;
+  background: #000;
+  color: #fff;
+  z-index: 100;
+}
+
+.kiemelo {
+  padding: 2rem 0;
+}
+
+.bevezeto {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.gomb {
+  display: inline-block;
+  padding: .6rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.gomb.masodlagos {
+  background: #e9f2ff;
+  color: var(--accent);
+}
+
+.gomb.kicsi {
+  padding: .4rem .6rem;
+  font-size: .9rem;
+}
+
+.funkcio-lista {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.api-lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.api-kartya {
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.ar-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ar-tabla th,
+.ar-tabla td {
+  padding: .75rem;
+  border: 1px solid #eee;
+  text-align: left;
+}
+
+.csapat-lista {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profil-kep {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.lablec {
+  border-top: 1px solid #eee;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+/* Focus styles for accessibility */
+
+a:focus {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+.kiemelo-belso {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.kiemelo-szoveg {
+  max-width: 600px;
+}
+
+.kiemelo-abra {
+  margin-top: 1rem;
+}
+
+.kiemelo-kep {
+  max-width: 320px;
+  height: auto;
+  display: block;
+}
+
+.api-ikon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: .5rem;
+  display: block;
+}
+
+.ar-illustracio {
+  max-width: 320px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .funkcio-lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .api-lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .csapat-lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .kiemelo-belso {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .kiemelo-szoveg {
+    flex: 1;
+    margin-right: 1rem;
+  }
+
+  .kiemelo-abra {
+    flex: 1;
+  }
+
+  .kiemelo-kep {
+    max-width: 420px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+
+  .oldal-cim {
+    font-size: 1.5rem;
+  }
+}
+
+/* High contrast tweaks */
+@media (prefers-contrast: more) {
+  :root {
+    --accent: #003a75;
+  }
+}
